@@ -10,6 +10,8 @@ from gtts import gTTS
 
 r = sr.Recognizer()
 
+# This function Is used for play audio
+
 
 def rupi_speak(audio_string):
     tts = gTTS(text=audio_string, lang='en')
@@ -19,6 +21,8 @@ def rupi_speak(audio_string):
     playsound.playsound(audio_file)
     print(audio_string)
     os.remove(audio_file)
+
+# This function Is used for record audio through microphone
 
 
 def record_audio(ask=False):
@@ -35,6 +39,8 @@ def record_audio(ask=False):
         except sr.RequestError:
             print('Sorry My Speech service is down')
         return voice_data
+
+# This function Is used to give respond to query ask by user
 
 
 def respond(voice_data):
@@ -56,6 +62,7 @@ def respond(voice_data):
         exit()
 
 
+# Loop for query to user
 time.sleep(1)
 while 1:
     rupi_speak('How can i help you ')
